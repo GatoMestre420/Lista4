@@ -1,5 +1,6 @@
-package br.edu.up;
 
+package br.edu.up;
+import java.util.Locale;
 import br.edu.up.modelos.*;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ public class Programa {
     public static void main(String[] args) {
 
         Scanner leitor = new Scanner(System.in);
-        java.util.Locale.setDefault(java.util.Locale.US);
+        java.util.Locale.setDefault(Locale.US);
 
         Livro livro = new Livro();
 
@@ -26,18 +27,13 @@ public class Programa {
         System.out.println("");
         System.out.println("---------------------------------------------------");
 
-
-
-
         leitor.nextLine();
         System.out.println("");
         System.out.println("---------------------------------------------------");
 
-
-        //    LIVRO 2
+        // LIVRO 2
         Livro livro2 = new Livro();
 
-      
         System.out.println("LIVRO 2");
         System.out.println("Digite o código do livro:");
         livro2.setCodigo(leitor.nextLine());
@@ -61,8 +57,6 @@ public class Programa {
 
         System.out.println("LIVRO 2");
         livro2.mostrarLivro();
-
- 
 
         leitor.close();
 

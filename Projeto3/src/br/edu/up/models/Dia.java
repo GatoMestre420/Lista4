@@ -38,6 +38,8 @@ public class Dia {
         this.compromissos = compromisso;
     }
 
+    //Métodos --------------------------------------------------
+    //Add compromissos
     public void adicionarCompromisso(Compromisso newCompromisso) {
 
         this.compromissos[1] = newCompromisso;
@@ -50,12 +52,28 @@ public class Dia {
         }
     }
 
+    //Consultar Compromisso
     public String consultarCompromisso(String pessoa, String local, String assunto, int hora) {
+
         for (Compromisso compromisso : compromissos) {
-            if (compromisso != null)
-                return getCompromisso();
+            if (compromisso != null){
+                return compromisso.toString();
             }
         }
-        return null; // Retorna null se não encontrar o compromisso
+         return null; // Retorna null se não encontrar o compromisso 
+    }  
+    
+    //Excluir Comprimisso
+    public void excluirCompromisso(int hora){
+        compromissos[hora] = null;
     }
+
+    //Obter Compromisso
+    public Compromisso obterCompromisso(int hora){
+        return compromissos[hora];
+    }
+
+    
+
+
 }

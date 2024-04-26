@@ -24,6 +24,16 @@ public class Programa {
         int diaDoCompromisso = Prompt.lerInteiro();
         dia.setDiaMes(diaDoCompromisso);
         dia.adicionarCompromisso(compromisso);
+
+        System.out.println("Lista de compromissos: ");
+        dia.consultarCompromisso(null, null, null, diaDoCompromisso);
+
+        System.out.println("Deseja excluir um compromisso ? S/N");
+        String r = Prompt.lerLinha(null);
+        if(r == "s" || r == "S"){
+            
+        }
+        
         
 
         

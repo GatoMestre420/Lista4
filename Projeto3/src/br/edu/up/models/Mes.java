@@ -15,7 +15,10 @@ public class Mes {
     public Mes(String nome, int qtdeDias, Dia[] dias) {
         this.nome = nome;
         this.qtdeDias = qtdeDias;
-        this.dias = dias;
+        this.dias = new Dia[qtdeDias];
+        for(int i = 0; i < qtdeDias; i++){
+            dias[i] = new Dia(i+1);
+        }
     }
 
     //Getters -------------------------------------------
@@ -48,8 +51,10 @@ public class Mes {
         this.dias = dias;
     } 
 
-
-
+    // Método para acessar dias
+    public Dia getDia(int dia){
+        return dias[dia - 1];
+    }
     
 
     

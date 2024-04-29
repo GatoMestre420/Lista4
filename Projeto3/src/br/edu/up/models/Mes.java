@@ -14,7 +14,15 @@ public class Mes {
         this.qtdeDias = dias;
         this.dias = new Dia[dias];
         this.nome = nome;
+<<<<<<< HEAD
         this.cont = 0;
+=======
+        this.qtdeDias = qtdeDias;
+        this.dias = new Dia[qtdeDias];
+        for(int i = 0; i < qtdeDias; i++){
+            dias[i] = new Dia(i+1);
+        }
+>>>>>>> 3b3354f51727d0d87c3dadc321fe9bfb97122054
     }
 
     public void addCompromisso(int dia, int hora, String pessoa, String local, String Assunto) {
@@ -87,6 +95,21 @@ public class Mes {
         }
         return compromissosListados.toString();
     }
+<<<<<<< HEAD
+=======
+
+
+    public void setDias(Dia[] dias) {
+        this.dias = dias;
+    } 
+
+    // Método para acessar dias
+    public Dia getDia(int dia){
+        return dias[dia - 1];
+    }
+    
+
+>>>>>>> 3b3354f51727d0d87c3dadc321fe9bfb97122054
     
     public String getNomeMes(){
         return this.nome;

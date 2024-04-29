@@ -16,6 +16,7 @@ public class Dia {
         this.compromissos = new Compromisso[24];
     }
 
+<<<<<<< HEAD
     public String addCompromisso(int hora, String pessoa, String local, String assunto) {
         if (hora >= 1 && hora < 24) {
             if (compromissos[hora - 1] == null) {
@@ -23,6 +24,46 @@ public class Dia {
                 cont++;
             } else {
                 return null;
+=======
+    public Dia(int diaMes) {
+        this.diaMes = diaMes;
+        this.compromissos = new Compromisso[24];
+    }
+
+    public Dia(int diaMes, Compromisso[] compromissos) {
+        this.diaMes = diaMes;
+        this.compromissos = compromissos;
+    }
+
+    // getters ------------------------------------------------
+    public int getDiaMes() {
+        return diaMes;
+    }
+
+    public Compromisso[] getCompromisso() {
+        return compromissos;
+    }
+
+    // Setters ------------------------------------------
+    public void setDiaMes(int diaMes) {
+        this.diaMes = diaMes;
+    }
+
+    public void setCompromisso(Compromisso[] compromisso) {
+        this.compromissos = compromisso;
+    }
+
+    //Métodos --------------------------------------------------
+    //Add compromissos
+    public void adicionarCompromisso(Compromisso newCompromisso) {
+
+        this.compromissos[1] = newCompromisso;
+
+        int x = newCompromisso.getHora() - 1;
+        for (int i = 0; i > 24; i++) {
+            if (this.compromissos[x] == null) {
+                this.compromissos[x] = newCompromisso;
+>>>>>>> 3b3354f51727d0d87c3dadc321fe9bfb97122054
             }
         } else {
             return null;
@@ -42,6 +83,7 @@ public class Dia {
         }
     }
 
+<<<<<<< HEAD
     public String removerCompromisso(int hora){
         if(hora >= 0 && hora < 24){
             if(compromissos[hora-1] != null){
@@ -66,4 +108,30 @@ public class Dia {
         return compromissosListados.isEmpty() ? null : compromissosListados;
     }
 
+=======
+    //Consultar Compromisso
+    public String consultarCompromisso(String pessoa, String local, String assunto, int hora) {
+
+        for (Compromisso compromisso : compromissos) {
+            if (compromisso != null){
+                return compromisso.toString();
+            }
+        }
+         return null; // Retorna null se não encontrar o compromisso 
+    }  
+    
+    //Excluir Comprimisso
+    public void excluirCompromisso(int hora){
+        compromissos[hora] = null;
+    }
+
+    //Obter Compromisso
+    public Compromisso obterCompromisso(int hora){
+        return compromissos[hora];
+    }
+
+    
+
+
+>>>>>>> 3b3354f51727d0d87c3dadc321fe9bfb97122054
 }

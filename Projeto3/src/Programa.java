@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 import br.edu.up.models.*;
-import br.edu.up.models.Prompt;
 
 public class Programa {
     public static void main(String[] args) throws Exception {

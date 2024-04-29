@@ -1,56 +1,96 @@
 package br.edu.up.models;
+import br.edu.up.telas.MesView;
 
 public class Mes {
 
     private String nome;
     private int qtdeDias;
-    Dia dias[];
+    private Dia[] dias;
+    private Compromisso[] compromissos[];
+    private int cont;
+    private MesView view = new MesView();
 
-
-    //Constructors --------------------------------------
-    public Mes() {
-    }
-
-
-    public Mes(String nome, int qtdeDias, Dia[] dias) {
+    public Mes(int dias, String nome) {
+        this.qtdeDias = dias;
+        this.dias = new Dia[dias];
         this.nome = nome;
-        this.qtdeDias = qtdeDias;
-        this.dias = dias;
+        this.cont = 0;
     }
 
-    //Getters -------------------------------------------
-    public String getNome() {
-        return nome;
+    public void addCompromisso(int dia, int hora, String pessoa, String local, String Assunto) {
+        if (dia > 0 && dia <= qtdeDias) {
+            if (hora >= 1 && hora < 24) {
+                if (dias[dia - 1] == null && dias[dia - 1].consultarCompromisso(hora).equals("1")) {
+                    if (dias[dia - 1] == null) {
+                        dias[dia - 1] = new Dia(dia);
+                    }
+                    dias[dia - 1].addCompromisso(hora, pessoa, local, Assunto);
+                }
+            }
+        }
     }
 
+    public String consultarCompromisso(int dia, int hora) {
+        if (dia > 0 && dia <= this.qtdeDias) {
+            if (hora >= 0 && hora < 24) {
+                if (dias[dia - 1] != null && dias[dia - 1].consultarCompromisso(hora) != "1") {
+                    return dias[dia - 1].consultarCompromisso(hora) + "Dia: " + dia;
+                } else {
+                    return "1";
+                }
+            }
+        }
+        return "";
+    }
 
     public int getQtdeDias() {
         return qtdeDias;
     }
 
-
-    public Dia[] getDias() {
-        return dias;
+    public String removerCompromisso(int dia, int hora) {
+        if (dia > 0 && dia <= qtdeDias) {
+            if (hora >= 0 && hora < 24) {
+                if (dias[dia - 1] != null) {
+                    if (dias[dia - 1].consultarCompromisso(hora) != "1") {
+                        dias[dia - 1].removerCompromisso(hora);
+                    } else {
+                        return null;
+                    }
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+        return "";
     }
 
-    // Setters ------------------------------------------------
-    public void setNome(String nome) {
-        this.nome = nome;
+    public boolean temCompromissos() {
+        for (Dia dia : dias) {
+            if (dia != null) {
+                return true;
+            }
+        }
+        return false;
     }
 
-
-    public void setQtdeDias(int qtdeDias) {
-        this.qtdeDias = qtdeDias;
+    public String listarTodosCompromissos(){
+        StringBuilder compromissosListados = new StringBuilder();
+        for(int i = 0; i< dias.length; i++){
+            if(dias[i] != null){
+                compromissosListados.append("Compromissos do dia").append(i + 1).append(":\n");
+                compromissosListados.append(dias[i].listarCompromisso()).append("\n");
+             }
+        }
+        return compromissosListados.toString();
     }
-
-
-    public void setDias(Dia[] dias) {
-        this.dias = dias;
-    } 
-
-
-
     
-
-    
+    public String getNomeMes(){
+        return this.nome;
+    }
 }
+
+

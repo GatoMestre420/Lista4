@@ -1,5 +1,6 @@
 package br.edu.up.models;
-import br.edu.up.telas.MesView;
+import br.edu.up.telas.MesTelas;
+import br.edu.up.telas.MesTelas;
 
 public class Mes {
 
@@ -8,21 +9,13 @@ public class Mes {
     private Dia[] dias;
     private Compromisso[] compromissos[];
     private int cont;
-    private MesView view = new MesView();
+    private MesTelas telas = new MesTelas();
 
     public Mes(int dias, String nome) {
         this.qtdeDias = dias;
         this.dias = new Dia[dias];
         this.nome = nome;
-<<<<<<< HEAD
         this.cont = 0;
-=======
-        this.qtdeDias = qtdeDias;
-        this.dias = new Dia[qtdeDias];
-        for(int i = 0; i < qtdeDias; i++){
-            dias[i] = new Dia(i+1);
-        }
->>>>>>> 3b3354f51727d0d87c3dadc321fe9bfb97122054
     }
 
     public void addCompromisso(int dia, int hora, String pessoa, String local, String Assunto) {
@@ -90,26 +83,11 @@ public class Mes {
         for(int i = 0; i< dias.length; i++){
             if(dias[i] != null){
                 compromissosListados.append("Compromissos do dia").append(i + 1).append(":\n");
-                compromissosListados.append(dias[i].listarCompromisso()).append("\n");
+                compromissosListados.append(dias[i].listarCompromissos()).append("\n");
              }
         }
         return compromissosListados.toString();
     }
-<<<<<<< HEAD
-=======
-
-
-    public void setDias(Dia[] dias) {
-        this.dias = dias;
-    } 
-
-    // Método para acessar dias
-    public Dia getDia(int dia){
-        return dias[dia - 1];
-    }
-    
-
->>>>>>> 3b3354f51727d0d87c3dadc321fe9bfb97122054
     
     public String getNomeMes(){
         return this.nome;

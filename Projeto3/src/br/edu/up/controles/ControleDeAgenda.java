@@ -69,7 +69,7 @@ public class ControleDeAgenda {
         //Verifica se o mes está inicializado e se tem compromissos agendados
         if(mesSelecionado != null && mesSelecionado.temCompromissos()){
             resultado.append("Compromissos agendados para ").append(mesSelecionado.getNomeMes()).append(":\n");
-            resultado.append(mesSelecionado.listarTodosCompromissos()).append("\n\n")
+            resultado.append(mesSelecionado.listarTodosCompromissos()).append("\n\n");
         } else {
             resultado.append("Não há compromissos agendados para o mês ").append(mes).append(".\n");
         }

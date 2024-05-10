@@ -1,30 +1,24 @@
 package br.edu.up.models;
 
+
 public class Evento {
 
-    public static String setData;
-    public static String setNome;
-    public static String setLocal;
-    public String nome;
-    public String data;
-    public String local;
-    public String lotacaoMax;
-    public int qntIngressoVendido;
-    public double valorIngresso;
+    private String nome;
+    private String data;
+    private String local;
+    private int lotacaoMax;
+    private int ingressosDisponiveis;
+    private Double precoIngresso;
 
-    // Constructors
-    // -----------------------------------------------------------------
-    public Evento(String nome, String data, String local, String lotacaoMax, int qntIngressoVendido,
-            double valorIngresso) {
+    public Evento(String nome, String data, String local, int lotacaoMax, Double precoIngresso) {
         this.nome = nome;
         this.data = data;
         this.local = local;
         this.lotacaoMax = lotacaoMax;
-        this.qntIngressoVendido = qntIngressoVendido;
-        this.valorIngresso = valorIngresso;
+        this.precoIngresso = precoIngresso;
+        this.ingressosDisponiveis = lotacaoMax;
     }
 
-    // getters ----------------------------------------------
     public String getNome() {
         return nome;
     }
@@ -37,19 +31,17 @@ public class Evento {
         return local;
     }
 
-    public String getLotacaoMax() {
+    public int getLotacaoMax() {
         return lotacaoMax;
     }
+    
 
-    public int getQntIngressoVendido() {
-        return qntIngressoVendido;
+    
+
+    public Double getPrecoIngresso() {
+        return precoIngresso;
     }
 
-    public double getValorIngresso() {
-        return valorIngresso;
-    }
-
-    // Setters -------------------------------------------------
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -62,16 +54,23 @@ public class Evento {
         this.local = local;
     }
 
-    public void setLotacaoMax(String lotacaoMax) {
+    public void setLotacaoMax(int lotacaoMax) {
         this.lotacaoMax = lotacaoMax;
     }
 
-    public void setQntIngressoVendido(int qntIngressoVendido) {
-        this.qntIngressoVendido = qntIngressoVendido;
+    public void setPrecoIngresso(Double precoIngresso) {
+        this.precoIngresso = precoIngresso;
     }
 
-    public void setValorIngresso(double valorIngresso) {
-        this.valorIngresso = valorIngresso;
+    public int getIngressosDisponiveis() {
+        return ingressosDisponiveis;
     }
 
+    public void setIngressosDisponiveis(int ingressosDisponiveis) {
+        this.ingressosDisponiveis = ingressosDisponiveis;
+    }
+    
+
+    
+    
 }

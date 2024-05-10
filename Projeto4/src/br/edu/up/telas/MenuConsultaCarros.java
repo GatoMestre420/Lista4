@@ -11,7 +11,8 @@ public class MenuConsultaCarros {
         Prompt.imprimir("Menu Inicial");
         Prompt.separador();
         Prompt.imprimir("1. Registrar carro;");
-        Prompt.imprimir("2.Gerar relatório de Turno;");
+        Prompt.imprimir("2.Procurar carro para retirar;");
+        Prompt.imprimir("3.Gerar relatório de Turno;");
         Prompt.separador();
         int opcao = Prompt.lerInteiro("Digite a operação desejada: ");
 
@@ -23,7 +24,7 @@ public class MenuConsultaCarros {
             }
 
             case 2:{
-            gerarRelatorio();
+            retirarVeiculo();
                 break;
             }
         
@@ -33,16 +34,36 @@ public class MenuConsultaCarros {
 
 
     }
-    public void registrarCarro(){
+    public Veiculo registrarCarro(){
         
-        Carros carro = new Carros();
-        carro.setModelo(Prompt.lerLinha("Digite o modelo do Carro: "));
-        carro.setCor(Prompt.lerLinha("Digite a cor do Carro: "));
-        carro.setPlaca(Prompt.lerLinha("Digite a Placa do Carro: "));
+        
+        String modelo = (Prompt.lerLinha("Digite o modelo do Carro: "));
+        String cor = (Prompt.lerLinha("Digite a cor do Carro: "));
+        String placa = (Prompt.lerLinha("Digite a Placa do Carro: "));
+        return new Veiculo(modelo, placa, cor);
     }
+
+    public void retirarVeiculo(){
+        public String receberPlaca() {
+        String pl = Prompt.lerLinha("Digite a placa do veículo:");
+        for(int i= 0 ; i<10; i++){
+            if){
+
+            }
+        }
+        placa = MenuConsultaCarros.receberPlaca();
+        Veiculo veiculo = Estacionamento.saidaVeiculo(placa);
+        if (veiculo != null) {
+            MenuConsultaCarros.mostrarMensagem("Veículo com placa " + placa + " saiu do estacionamento.");
+        } else {
+            MenuConsultaCarros.mostrarMensagem("Veículo não encontrado.");
+        }
+    }
+}
+
 
     public void gerarRelatorio(){
         
     }
-}
+
 

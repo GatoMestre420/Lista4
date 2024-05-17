@@ -2,21 +2,21 @@ package br.edu.up.models;
 
 public class Tripulação extends Pessoa {
 
-    private String idAeronautica;
+    private String identificacaoAeronautica;
     private String matriculaFuncionario;
 
-    public Tripulação(String nome, String rg, int IdAeronautica, String matriculaFuncionario){
-        super(nome, rg);
+    public Tripulação(String nome, String rg, Aeronave aeronave, String IdAeronautica, String matriculaFuncionario){
+        super(nome, rg, aeronave);
         this.matriculaFuncionario = matriculaFuncionario;
-        this.idAeronautica = idAeronautica;
+        this.identificacaoAeronautica = identificacaoAeronautica;
 
     }
 
     public String getIdAeronautica() {
-        return idAeronautica;
+        return identificacaoAeronautica;
     }
     public void setIdAeronautica(String idAeronautica) {
-        this.idAeronautica = idAeronautica;
+        this.identificacaoAeronautica = idAeronautica;
     }
     public String getMatriculaFuncionario() {
         return matriculaFuncionario;
@@ -25,6 +25,7 @@ public class Tripulação extends Pessoa {
         this.matriculaFuncionario = matriculaFuncionario;
     }
 
+    
     
 
     

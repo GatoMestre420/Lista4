@@ -1,10 +1,19 @@
 package br.edu.up.models;
 
+import java.time.LocalDateTime;
+
 public class Passagem {
 
     public int numAssento;
     public String classeAssento;
-    public String dataVoo;
+    public LocalDateTime dataVoo;
+
+     public Passagem(String numeroAssento, String classeAssento, LocalDateTime dataVoo) {
+        this.numAssento = numAssento;
+        this.classeAssento = classeAssento;
+        this.dataVoo = dataVoo;
+     }
+
     public int getNumAssento() {
         return numAssento;
     }
@@ -17,10 +26,10 @@ public class Passagem {
     public void setClasseAssento(String classeAssento) {
         this.classeAssento = classeAssento;
     }
-    public String getDataVoo() {
+    public LocalDateTime getDataVoo() {
         return dataVoo;
     }
-    public void setDataVoo(String dataVoo) {
+    public void setDataVoo(LocalDateTime dataVoo) {
         this.dataVoo = dataVoo;
     }
 

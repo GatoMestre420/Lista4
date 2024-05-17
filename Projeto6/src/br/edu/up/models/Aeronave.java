@@ -2,15 +2,15 @@ package br.edu.up.models;
 
 public class Aeronave {
 
+    private String codigo;
+    private int qtdAssentos;
+    private String tipoAeronave;
+    
     public Aeronave(String codigo, String tipo, int quantidadeAssentos) {
         this.codigo = codigo;
         this.tipoAeronave = tipo;
         this.qtdAssentos = quantidadeAssentos;
     }
-
-    private String codigo;
-    private int qtdAssentos;
-    private String tipoAeronave;
 
     public String getCodigo() {
         return codigo;

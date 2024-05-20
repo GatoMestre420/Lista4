@@ -6,12 +6,12 @@ public class Comandante extends Tripulação {
 
     private int totalHorasVoo;
 
-    public Comandante(String nome, String rg, String identificacaoAeronautica, String matricula, int totalHorasVoo) {
-        super(nome, rg, idAeronautica, matriculaFuncionario);
+    public Comandante(String nome, String rg, String identificacaoAeronautica, String matriculaFuncionario, int totalHorasVoo, Aeronave aeronave) {
+        super(nome, rg, aeronave, identificacaoAeronautica, matriculaFuncionario);
         this.totalHorasVoo = totalHorasVoo;
     }
 
-    }
+    
     public int getTotalHorasVoo() {
         return totalHorasVoo;
     }
@@ -20,12 +20,6 @@ public class Comandante extends Tripulação {
         this.totalHorasVoo = totalHorasVoo;
     }
 
-    public String getIdiomas() {
-        return idiomas;
-    }
 
-    public void setIdiomas(String idiomas) {
-        this.idiomas = idiomas;
-    }
-
+    
 }

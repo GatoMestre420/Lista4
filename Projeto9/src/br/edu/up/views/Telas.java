@@ -1,7 +1,7 @@
-package br.edu.up.Telas;
+package br.edu.up.views;
 
-import br.edu.up.Models.ClienteEmpresa;
-import br.edu.up.Models.ClientePessoa;
+import br.edu.up.models.ClienteEmpresa;
+import br.edu.up.models.ClientePessoa;
 
 public class Telas {
 

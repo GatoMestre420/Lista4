@@ -41,5 +41,15 @@ public class Pessoa {
         this.aeronave = aeronave;
     }
 
+
+
+
+    @Override
+    public String toString() {
+        return "Pessoa [nome=" + nome + ", rg=" + rg + ", aeronave=" + aeronave + "]";
+    }
+
+    
+
     
 }

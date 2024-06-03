@@ -28,7 +28,14 @@ public String getIdBagagem() {
         this.passagem = passagem;
     }
 
+    @Override
+    public String toString() {
+        return "Passageiro - identificadorBagagem: " + identificadorBagagem + ", Nome:" + getNome()
+                 + ", Rg:" + getRg() + ", Aeronave: " + getAeronave()
+                + "]";
+    }
 
+    
 
 }
 

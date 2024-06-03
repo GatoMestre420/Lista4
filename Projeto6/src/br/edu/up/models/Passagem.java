@@ -4,20 +4,20 @@ import java.time.LocalDateTime;
 
 public class Passagem {
 
-    public int numAssento;
+    public String numAssento;
     public String classeAssento;
     public LocalDateTime dataVoo;
 
-     public Passagem(String numeroAssento, String classeAssento, LocalDateTime dataVoo) {
+     public Passagem(String numAssento, String classeAssento, LocalDateTime dataVoo) {
         this.numAssento = numAssento;
         this.classeAssento = classeAssento;
         this.dataVoo = dataVoo;
      }
 
-    public int getNumAssento() {
+    public String getNumAssento() {
         return numAssento;
     }
-    public void setNumAssento(int numAssento) {
+    public void setNumAssento(String numAssento) {
         this.numAssento = numAssento;
     }
     public String getClasseAssento() {
@@ -31,6 +31,11 @@ public class Passagem {
     }
     public void setDataVoo(LocalDateTime dataVoo) {
         this.dataVoo = dataVoo;
+    }
+
+    @Override
+    public String toString() {
+        return "Passagem [numAssento=" + numAssento + ", classeAssento=" + classeAssento + ", dataVoo=" + dataVoo + "]";
     }
 
     

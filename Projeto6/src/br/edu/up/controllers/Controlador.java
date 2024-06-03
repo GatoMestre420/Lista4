@@ -1,11 +1,10 @@
 package br.edu.up.controllers;
 
-import br.edu.up.View.Menu;
+import br.edu.up.views.Menu;
 
 import br.edu.up.models.*;
 
 import java.time.LocalDateTime;
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,11 +43,11 @@ public class Controlador {
     private void registrarPassageiro() {
         String nome = menu.lerString("Nome: ");
         String rg = menu.lerString("RG: ");
-        Aeronave aeronave = criarAeronave();
         String identificadorBagagem = menu.lerString("Identificador de Bagagem: ");
+        Aeronave aeronave = criarAeronave();
         Passagem passagem = criarPassagem();
 
-        Passageiro passageiro = new Passageiro(nome, rg, aeronave, identificadorBagagem, passagem);
+        Passageiro passageiro = new Passageiro(nome, rg, identificadorBagagem, passagem, aeronave);
         pessoas.add(passageiro);
 
         System.out.println("Passageiro registrado com sucesso!");
@@ -57,9 +56,10 @@ public class Controlador {
     private void registrarTripulacao() {
         String nome = menu.lerString("Nome: ");
         String rg = menu.lerString("RG: ");
-        Aeronave aeronave = criarAeronave();
         String identificacaoAeronautica = menu.lerString("Identificação Aeronáutica: ");
         String matricula = menu.lerString("Matrícula: ");
+        Aeronave aeronave = criarAeronave();
+        System.out.println();
 
         System.out.println("1. Comandante");
         System.out.println("2. Comissário");
@@ -67,7 +67,7 @@ public class Controlador {
 
         if (tipo == 1) {
             int totalHorasVoo = menu.lerInt("Total de Horas de Voo: ");
-            Comandante comandante = new Comandante(nome, rg, aeronave, identificacaoAeronautica, matriculaFuncionario, totalHorasVoo);
+            Comandante comandante = new Comandante(nome, rg, identificacaoAeronautica, matricula, totalHorasVoo, aeronave);
             pessoas.add(comandante);
         } else if (tipo == 2) {
             List<String> idiomas = new ArrayList<>();
@@ -86,20 +86,28 @@ public class Controlador {
     private Aeronave criarAeronave() {
         String codigo = menu.lerString("Código da Aeronave: ");
         String tipo = menu.lerString("Tipo da Aeronave: ");
-        int quantidadeAssentos = menu.lerInt("Quantidade de Assentos: ");
-        return new Aeronave(codigo, tipo, quantidadeAssentos);
+        String qtdAssentos = menu.lerString("Quantidade de Assentos: ");
+
+        return new Aeronave(codigo, tipo, qtdAssentos);
     }
 
     private Passagem criarPassagem() {
-        String numeroAssento = menu.lerString("Número do Assento: ");
+        String numAssento = menu.lerString("Número do Assento: ");
         String classeAssento = menu.lerString("Classe do Assento: ");
-        LocalDateTime dataVoo = menu.lerDataHora("Data e Hora do Voo (yyyy-MM-dd HH:mm): ");
-        return new Passagem(numeroAssento, classeAssento, dataVoo);
+        LocalDateTime dataVoo = (LocalDateTime.now());
+        return new Passagem(numAssento, classeAssento, dataVoo);
+    }
+
+    
+
+    @Override
+    public String toString() {
+        return "Controlador [pessoas=" + pessoas + "]";
     }
 
     private void exibirInformacoes() {
         for (Pessoa pessoa : pessoas) {
-            System.out.println(pessoa);
+            System.out.println(pessoa.toString());
         }
     }
 }

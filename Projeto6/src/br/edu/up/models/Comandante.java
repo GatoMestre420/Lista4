@@ -6,8 +6,8 @@ public class Comandante extends Tripulação {
 
     private int totalHorasVoo;
 
-    public Comandante(String nome, String rg, String identificacaoAeronautica, String matriculaFuncionario, int totalHorasVoo, Aeronave aeronave) {
-        super(nome, rg, aeronave, identificacaoAeronautica, matriculaFuncionario);
+    public Comandante(String nome, String rg, String identificacaoAeronautica, String matricula, int totalHorasVoo, Aeronave aeronave) {
+        super(nome, rg, aeronave, identificacaoAeronautica, matricula);
         this.totalHorasVoo = totalHorasVoo;
     }
 
@@ -21,5 +21,13 @@ public class Comandante extends Tripulação {
     }
 
 
+    @Override
+    public String toString() {
+        return "Comandante - Horas de Voo: " + totalHorasVoo + ", Aeronave: " + aeronave + ", Nome:" + getNome()
+                + ", IdAeronautica: " + getIdAeronautica() + ", Rg:" + getRg() + ", MatriculaFuncionario:"
+                + getMatriculaFuncionario() + "]";
+    }
+
+    
     
 }

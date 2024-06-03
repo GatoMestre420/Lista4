@@ -2,27 +2,32 @@ package br.edu.up.models;
 
 public class Tripulação extends Pessoa {
 
-    private String identificacaoAeronautica;
-    private String matriculaFuncionario;
+    private String idAeronautica;
+    private String matricula;
 
-    public Tripulação(String nome, String rg, Aeronave aeronave, String IdAeronautica, String matriculaFuncionario){
+    public Tripulação(String nome, String rg, Aeronave aeronave, String idAeronautica, String matricula){
         super(nome, rg, aeronave);
-        this.matriculaFuncionario = matriculaFuncionario;
-        this.identificacaoAeronautica = identificacaoAeronautica;
+        this.matricula = matricula;
+        this.idAeronautica = idAeronautica;
 
     }
 
     public String getIdAeronautica() {
-        return identificacaoAeronautica;
+        return idAeronautica;
     }
     public void setIdAeronautica(String idAeronautica) {
-        this.identificacaoAeronautica = idAeronautica;
+        this.idAeronautica = idAeronautica;
     }
     public String getMatriculaFuncionario() {
-        return matriculaFuncionario;
+        return matricula;
     }
     public void setMatriculaFuncionario(String matriculaFuncionario) {
-        this.matriculaFuncionario = matriculaFuncionario;
+        this.matricula = matriculaFuncionario;
+    }
+
+    @Override
+    public String toString() {
+        return "Tripulação [idAeronautica=" + idAeronautica + ", matricula=" + matricula + "]";
     }
 
     
